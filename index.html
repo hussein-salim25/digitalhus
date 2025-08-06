@@ -245,6 +245,65 @@
         font-size: 1.25rem;
       }
     }
+    .about-section {
+  padding: 4rem 1.5rem;
+  background: #0a0a0a;
+  color: #f1f1f1;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
+  transition: transform 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+.about-text {
+  flex: 2;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  border-left: 5px solid #00ffff;
+  padding-left: 1rem;
+}
+
+.about-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ccc;
+}
+
+.about-quote {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #00ffff;
+  font-size: 1.1rem;
+  text-align: center;
+}
   </style>
 </head>
 
@@ -286,7 +345,35 @@
       </div>
     </div>
   </section>
-
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="about-image">
+      <img src="https://i.imgur.com/OyQfR5T.jpg" alt="Hussein Salim portrait" />
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>
+        I’m <strong>Hussein Salim</strong> — a Full Stack JavaScript Developer, Designer, and Digital Strategist
+        who evolved from a luxury hospitality background into the world of code and creativity.
+      </p>
+      <p>
+        Rooted in service, driven by precision, and powered by purpose, I blend my 7+ years of elite guest experience
+        with technical and artistic excellence. My transition isn’t just a career shift — it’s a soul-aligned reinvention.
+      </p>
+      <p>
+        My astrological blueprint — <em>Scorpio Rising, Sagittarius Sun, Virgo Moon</em> — mirrors this journey:
+        intuitive, expansive, always evolving.
+      </p>
+      <p>
+        Whether it’s building elegant web applications, crafting magnetic brand identities, or scaling Meta ad campaigns,
+        I lead with intuition, impact, and innovation.
+      </p>
+      <div class="about-quote">
+        <span>“Your purpose is encoded in your path — I just turned mine into pixels.”</span>
+      </div>
+    </div>
+  </div>
+</section>
   <script>
     const roles = [
       "Logo Designer",
