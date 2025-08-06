@@ -304,6 +304,85 @@
   font-size: 1.1rem;
   text-align: center;
 }
+    /* Reveal Section Setup */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-item.delay-1 { transition-delay: 0.3s; }
+.reveal-section.revealed,
+.reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Existing styles */
+.about-section {
+  padding: 4rem 1.5rem;
+  background: #111;
+  color: var(--text);
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  transition: transform 0.5s ease;
+}
+
+.about-text {
+  flex: 2;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.2rem;
+  color: var(--accent);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.about-quote {
+  margin-top: 1.5rem;
+  color: var(--accent);
+  font-style: italic;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    text-align: left;
+  }
+  .about-image img {
+    width: 250px;
+    height: 250px;
+  }
+}
   </style>
 </head>
 
@@ -344,32 +423,21 @@
         <a href="#contact" class="btn-secondary">Let’s Connect</a>
       </div>
     </div>
-  </section>
-<section id="about" class="about-section">
+<section id="about" class="about-section reveal-section">
   <div class="about-container">
-     <div class="about-text">
-      <h2>About Me</h2>
-    <div class="about-image">
-      <img src="images/hussein.webp" alt="Hussein Salim portrait" />
+    <div class="about-image reveal-item">
+      <img src="YOUR_IMAGE_URL" alt="Hussein Salim portrait" />
     </div>
+    <div class="about-text reveal-item delay-1">
+      <h2>About Me</h2>
       <p>
-        <strong>Hussein Salim is my good name</strong> — a Full Stack JavaScript Developer, Designer, and Digital Strategist
-        who evolved from a luxury hospitality background into the world of code and creativity.
+        With over 7 years delivering luxury service in elite hospitality, I transitioned into the digital world to blend precision, creativity, and empathy.
       </p>
       <p>
-        Rooted in service, driven by precision, and powered by purpose, I blend my 7+ years of elite guest experience
-        with technical and artistic excellence. My transition isn’t just a career shift — it’s a soul-aligned reinvention.
-      </p>
-      <p>
-        My astrological blueprint — <em>Scorpio Rising, Sagittarius Sun, Virgo Moon</em> — mirrors this journey:
-        intuitive, expansive, always evolving.
-      </p>
-      <p>
-        Whether it’s building elegant web applications, crafting magnetic brand identities, or scaling Meta ad campaigns,
-        I lead with intuition, impact, and innovation.
+        Now, as a Full Stack JavaScript Developer, Logo Designer, Digital Marketer, and Meta Ads Specialist, I build experiences that are performance‑focused and deeply human.
       </p>
       <div class="about-quote">
-        <span>“Your purpose is encoded in your path — I just turned mine into pixels.”</span>
+        “Your purpose is encoded in your path — I turned mine into pixels.”
       </div>
     </div>
   </div>
@@ -412,6 +480,18 @@
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll(".reveal-section, .reveal-item").forEach(el => {
+      observer.observe(el);
+    });
 </script>
 
 </body>
