@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hussein Salim – Full Stack Developer Portfolio" />
+  <meta name="description" content="Hussein Salim – Digital Portfolio" />
   <title>DigitalHus – Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -22,7 +22,6 @@
       color: var(--text);
     }
 
-    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -31,7 +30,6 @@
       padding: 2rem;
       text-align: center;
       background: linear-gradient(to bottom, #000000, #1a1a1a);
-      overflow: hidden;
     }
 
     .container {
@@ -44,7 +42,6 @@
       margin-bottom: 1rem;
     }
 
-    /* 👋 Waving hand */
     .wave {
       display: inline-block;
       animation: waveHand 2s infinite;
@@ -52,17 +49,15 @@
     }
 
     @keyframes waveHand {
-      0% { transform: rotate(0deg); }
+      0%, 100% { transform: rotate(0deg); }
       10% { transform: rotate(14deg); }
       20% { transform: rotate(-8deg); }
       30% { transform: rotate(14deg); }
       40% { transform: rotate(-4deg); }
       50% { transform: rotate(10deg); }
       60% { transform: rotate(0deg); }
-      100% { transform: rotate(0deg); }
     }
 
-    /* 😊 Smiling face animation */
     .smile {
       display: inline-block;
       animation: pulseSmiley 3s ease-in-out infinite;
@@ -73,18 +68,28 @@
       50% { transform: scale(1.15); opacity: 0.9; }
     }
 
-    .typing-text {
+    .typing-container {
       font-size: 1.5rem;
       font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .static-text {
+      display: inline;
+    }
+
+    .dynamic-text {
+      display: inline;
       color: var(--accent);
     }
 
     .cursor {
       display: inline-block;
-      width: 1px;
+      width: 2px;
+      height: 1.2em;
       background-color: var(--accent);
+      margin-left: 4px;
       animation: blink 1s infinite;
-      margin-left: 2px;
     }
 
     @keyframes blink {
@@ -92,20 +97,16 @@
       50% { opacity: 0; }
     }
 
-    .disappearing-paragraph {
-      margin-top: 1.5rem;
-      animation: fadeShimmerOut 8s ease forwards;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .disappearing-paragraph p {
+    /* 👇 Disappearing Paragraph */
+    .disappearing-text {
       font-size: 1.1rem;
       color: var(--muted);
-      line-height: 1.6;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: appearThenVanish 9s ease-in-out forwards;
     }
 
-    @keyframes fadeShimmerOut {
+    @keyframes appearThenVanish {
       0% {
         opacity: 0;
         transform: translateY(20px);
@@ -114,20 +115,20 @@
         opacity: 1;
         transform: translateY(0);
       }
-      60% {
+      70% {
         opacity: 1;
       }
-      90% {
+      85% {
         opacity: 0.5;
-        filter: brightness(1.6);
+        filter: brightness(1.8);
         mask-image: linear-gradient(90deg, transparent 30%, white 50%, transparent 70%);
         -webkit-mask-image: linear-gradient(90deg, transparent 30%, white 50%, transparent 70%);
       }
       100% {
         opacity: 0;
-        filter: blur(6px);
         transform: scale(1.02);
         pointer-events: none;
+        display: none;
       }
     }
 
@@ -167,41 +168,14 @@
       color: black;
     }
 
-    /* Reveal animations */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 1s ease forwards;
-    }
-
-    .delay {
-      animation-delay: 0.5s;
-    }
-
-    .delay-2 {
-      animation-delay: 1s;
-    }
-
-    .delay-3 {
-      animation-delay: 1.5s;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive */
     @media (min-width: 768px) {
       h1 {
         font-size: 3rem;
       }
-      .typing-text {
+      .typing-container {
         font-size: 2rem;
       }
-      .disappearing-paragraph p {
+      .disappearing-text {
         font-size: 1.25rem;
       }
     }
@@ -210,72 +184,64 @@
 
 <body>
 
-  <!-- HERO SECTION -->
   <section class="hero">
     <div class="container">
-      <!-- Greeting -->
-      <h1 class="reveal delay">
-        <span class="wave">👋</span> Hi, I’m Hussein Salim <span class="smile">😊</span>
-      </h1>
+      <h1><span class="wave">👋</span> Hi, My name is Hussein Salim <span class="smile">😊</span></h1>
 
-      <!-- Typing Roles -->
-      <h2 class="typing-text reveal delay-2">
-        I am a <span id="typed-text"></span><span class="cursor">|</span>
-      </h2>
+      <div class="typing-container">
+        <span class="static-text">I am a Full Stack JavaScript Developer and </span>
+        <span class="dynamic-text" id="typed-text"></span><span class="cursor"></span>
+      </div>
 
-      <!-- Disappearing Paragraph -->
-      <div class="disappearing-paragraph reveal delay-3">
+      <!-- Disappearing paragraph with shimmer-out animation -->
+      <div class="disappearing-text">
         <p>
-          With over 7 years of delivering luxury service in elite hospitality, I now channel that same precision, creativity, and human touch into digital experiences.
-        </p>
-        <p>
-          Whether it’s building seamless websites, crafting bold brand identities, or driving high-converting Meta ad campaigns — I bring elegance, strategy, and soul to every pixel.
+          With over 7 years of delivering luxury service in elite hospitality, I now channel that same precision,
+          creativity, and human touch into digital experiences. Whether it’s building seamless websites, crafting bold
+          brand identities, or driving high-converting Meta ad campaigns — I bring elegance, strategy, and soul to
+          every pixel.
         </p>
       </div>
 
-      <!-- Buttons -->
-      <div class="buttons reveal delay-3">
+      <div class="buttons">
         <a href="#projects" class="btn-primary">See My Work</a>
         <a href="#contact" class="btn-secondary">Let’s Connect</a>
       </div>
     </div>
   </section>
 
-  <!-- Typing Effect Script -->
   <script>
-    const words = [
-      "Full Stack Developer",
+    const roles = [
       "Logo Designer",
       "Digital Marketer",
-      "Meta Ads Specialist"
+      "Meta Social Media Marketing Specialist"
     ];
-    let i = 0;
-    let j = 0;
+
+    let roleIndex = 0;
+    let charIndex = 0;
     let isDeleting = false;
-    const speed = 100;
-    const target = document.getElementById("typed-text");
+    const typedText = document.getElementById("typed-text");
 
-    function typeEffect() {
-      const currentWord = words[i];
-      if (!isDeleting && j <= currentWord.length) {
-        target.textContent = currentWord.substring(0, j++);
-      } else if (isDeleting && j >= 0) {
-        target.textContent = currentWord.substring(0, j--);
-      }
-
-      if (j === currentWord.length) {
-        isDeleting = true;
-        setTimeout(typeEffect, 1000);
-      } else if (j === 0 && isDeleting) {
-        isDeleting = false;
-        i = (i + 1) % words.length;
-        setTimeout(typeEffect, 300);
+    function type() {
+      const current = roles[roleIndex];
+      if (!isDeleting) {
+        typedText.textContent = current.substring(0, charIndex++);
+        if (charIndex > current.length) {
+          isDeleting = true;
+          setTimeout(type, 1500);
+          return;
+        }
       } else {
-        setTimeout(typeEffect, isDeleting ? 50 : speed);
+        typedText.textContent = current.substring(0, charIndex--);
+        if (charIndex === 0) {
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
       }
+      setTimeout(type, isDeleting ? 40 : 100);
     }
 
-    document.addEventListener("DOMContentLoaded", typeEffect);
+    document.addEventListener("DOMContentLoaded", type);
   </script>
 
 </body>
