@@ -5,147 +5,223 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Hussein Salim – Digital Portfolio" />
   <title>DigitalHus – Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Import Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <style>
-  /* Import Google Font */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+    :root {
+      --bg: #0e0e0e;
+      --text: #ffffff;
+      --accent: #ffffff;
+      --muted: #cccccc;
+    }
 
-  :root {
-    --bg: #0e0e0e;
-    --text: #ffffff;
-    --accent: #ffffff;
-    --muted: #cccccc;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: var(--bg);
-    color: var(--text);
-  }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
 
-  /* Hero Section */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    background: linear-gradient(to bottom, #000000, #1a1a1a);
-  }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-  .container {
-    max-width: 800px;
-  }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-  h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.4;
-  }
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+    }
 
-  p {
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    color: var(--muted);
-  }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
 
-  .buttons {
-    margin-top: 2rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
 
-  .btn-primary,
-  .btn-secondary {
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-  .btn-primary {
-    background-color: var(--accent);
-    color: black;
-  }
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
 
-  .btn-primary:hover {
-    transform: scale(1.05);
-  }
+    .btn-primary {
+      background-color: var(--accent);
+      color: black;
+    }
 
-  .btn-secondary {
-    border: 1px solid var(--accent);
-    color: var(--accent);
-  }
+    .btn-primary:hover {
+      transform: scale(1.05);
+    }
 
-  .btn-secondary:hover {
-    background-color: var(--accent);
-    color: black;
-  }
+    .btn-secondary {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
 
-  /* Animations */
-  .reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    animation: fadeUp 1s ease forwards;
-  }
+    .btn-secondary:hover {
+      background-color: var(--accent);
+      color: black;
+    }
 
-  .delay {
-    animation-delay: 0.5s;
-  }
+    /* About Section */
+    .about {
+      background-color: #111;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
 
-  .delay-2 {
-    animation-delay: 1s;
-  }
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
 
-  .reveal.delay-3 {
-    animation-delay: 1.5s;
-  }
+    .about p {
+      max-width: 700px;
+      margin: 1rem auto;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
 
-  @keyframes fadeUp {
-    to {
+    /* Projects Section */
+    .projects {
+      background-color: #0a0a0a;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .projects h2 {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .overlay {
       opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ✅ About Section (OUTSIDE media query) */
-  .about {
-    background-color: #111;
-    padding: 4rem 2rem;
-    text-align: center;
-  }
-
-  .about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .about p {
-    max-width: 700px;
-    margin: 1rem auto;
-    font-size: 1.1rem;
-    color: var(--muted);
-  }
-
-  /* Responsive Typography */
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 3rem;
     }
 
-    p {
-      font-size: 1.25rem;
+    .overlay h3 {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0;
     }
-  }
-</style>
+
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .delay {
+      animation-delay: 0.5s;
+    }
+
+    .delay-2 {
+      animation-delay: 1s;
+    }
+
+    .delay-3 {
+      animation-delay: 1.5s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Typography */
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .hero p,
+      .about p {
+        font-size: 1.25rem;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container">
       <h1 class="reveal">
@@ -159,20 +235,44 @@
         <a href="#contact" class="btn-secondary">Let’s Connect</a>
       </div>
     </div>
-    <section class="about" id="about">
-  <div class="container">
-    <h2 class="reveal">About Me</h2>
-    <p class="reveal delay">
-      With over 7 years of experience delivering world-class service in luxury hospitality and aviation, I learned the power of precision, presence, and empathy.
-    </p>
-    <p class="reveal delay-2">
-      Today, I bring that same passion into the digital space — designing thoughtful user experiences, building clean interfaces, and developing websites that feel personal and perform seamlessly.
-    </p>
-    <p class="reveal delay-3">
-      Every brand I build is crafted with clarity, intention, and a touch of human warmth — because to me, real design is always about people.
-    </p>
-  </div>
-</section>
   </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="reveal">About Me</h2>
+      <p class="reveal delay">
+        With over 7 years of experience delivering world-class service in luxury hospitality and aviation, I learned the power of precision, presence, and empathy.
+      </p>
+      <p class="reveal delay-2">
+        Today, I bring that same passion into the digital space — designing thoughtful user experiences, building clean interfaces, and developing websites that feel personal and perform seamlessly.
+      </p>
+      <p class="reveal delay-3">
+        Every brand I build is crafted with clarity, intention, and a touch of human warmth — because to me, real design is always about people.
+      </p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <h2 class="reveal">My Work</h2>
+      <div class="project-grid">
+        <a href="https://husseinbakes.github.io/husseinbakes_website/" class="project-card reveal delay" target="_blank">
+          <img src="https://raw.githubusercontent.com/husseinbakes/husseinbakes_website/main/assets/logo.png" alt="Hussein Bakes Logo" />
+          <div class="overlay">
+            <h3>Hussein Bakes</h3>
+          </div>
+        </a>
+        <a href="https://fatmaglam.com" class="project-card reveal delay-2" target="_blank">
+          <img src="https://fatmaglam.com/favicon.png" alt="Glam by Fatma Logo" />
+          <div class="overlay">
+            <h3>Glam by Fatma</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
