@@ -322,32 +322,54 @@
     .revealed {
       opacity: 1 !important;
       transform: translateY(0) !important;
-    }
-    .tools-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+    }.tech-stack {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #0a0a0a;
 }
 
-.tools-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: #222;
-  padding: 0.6rem 1rem;
-  border-radius: 30px;
-  font-size: 0.95rem;
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
   color: #fff;
-  border: 1px solid #333;
-  transition: all 0.3s ease;
 }
 
-.tools-list li img {
-  width: 22px;
-  height: 22px;
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tool-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.tool-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+}
+
+.tool-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.8rem;
+}
+
+.tool-card p {
+  font-size: 0.9rem;
+  margin: 0;
 }
   </style>
 </head>
@@ -399,53 +421,55 @@
       </div>
     </div>
   </section>
-  <h3 class="tools-heading">🛠 Technologies & Tools I Use</h3>
-<ul class="tools-list">
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-    JavaScript
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
-    TypeScript
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-    Java
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" />
-    Spring Boot
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-    Node.js
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-    React
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
-    Next.js
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-    Docker
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
-    Azure
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
-    Firebase
-  </li>
-  <li>
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Actions" />
-    GitHub Actions
-  </li>
-</ul>
+ <section class="tech-stack">
+  <h2 class="section-title">🛠️ Tools & Technologies I Use</h2>
+  <div class="tool-grid">
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+      <p>JavaScript</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
+      <p>TypeScript</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+      <p>Java</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" />
+      <p>Spring Boot</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+      <p>Node.js</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+      <p>React</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
+      <p>Next.js</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+      <p>Docker</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
+      <p>Azure</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
+      <p>Firebase</p>
+    </div>
+    <div class="tool-card">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Actions" />
+      <p>GitHub Actions</p>
+    </div>
+  </div>
+</section>
 
   <!-- ✅ Scripts -->
   <script>
