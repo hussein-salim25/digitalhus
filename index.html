@@ -21,79 +21,82 @@
       background-color: var(--bg);
       color: var(--text);
     }
-.navbar {
-  background-color: #0b0b0b;
-  padding: 1rem 2rem;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 999;
-  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-}
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+    /* === NAVIGATION === */
+    .navbar {
+      background-color: #0b0b0b;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+    }
 
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--accent);
-}
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-.hamburger {
-  font-size: 2rem;
-  color: var(--accent);
-  cursor: pointer;
-  display: none;
-}
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
 
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
+    .hamburger {
+      font-size: 2rem;
+      color: var(--accent);
+      cursor: pointer;
+      display: none;
+    }
 
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
 
-.nav-links a:hover {
-  color: var(--accent);
-}
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-/* Mobile responsive styles */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
 
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 2rem;
-    background-color: #111;
-    padding: 1rem 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
 
-  .nav-links.active {
-    display: flex;
-  }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        background-color: #111;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      }
 
-  .nav-links a {
-    padding: 0.5rem 0;
-  }
-}
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 0.5rem 0;
+      }
+    }
+
+    /* === HERO SECTION === */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -169,7 +172,6 @@
       50% { opacity: 0; }
     }
 
-    /* ✅ Slowly Disappearing Paragraph */
     .disappearing-text {
       font-size: 1.1rem;
       color: var(--muted);
@@ -245,210 +247,140 @@
         font-size: 1.25rem;
       }
     }
+
+    /* === ABOUT SECTION === */
     .about-section {
-  padding: 4rem 1.5rem;
-  background: #0a0a0a;
-  color: #f1f1f1;
-  font-family: 'Poppins', sans-serif;
-}
+      padding: 4rem 1.5rem;
+      background: #111;
+      color: var(--text);
+    }
 
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: auto;
-  align-items: center;
-  gap: 2rem;
-}
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1100px;
+      margin: auto;
+      align-items: center;
+      gap: 2rem;
+    }
 
-.about-image {
-  flex: 1;
-  text-align: center;
-}
+    .about-image img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      transition: transform 0.5s ease;
+    }
 
-.about-image img {
-  width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
-  transition: transform 0.5s ease;
-}
+    .about-text {
+      flex: 2;
+      min-width: 280px;
+    }
 
-.about-image img:hover {
-  transform: scale(1.05);
-}
+    .about-text h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1.2rem;
+      color: var(--accent);
+    }
 
-.about-text {
-  flex: 2;
-  min-width: 280px;
-}
+    .about-text p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
 
-.about-text h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #fff;
-  border-left: 5px solid #00ffff;
-  padding-left: 1rem;
-}
+    .about-quote {
+      margin-top: 1.5rem;
+      color: var(--accent);
+      font-style: italic;
+    }
 
-.about-text p {
-  margin-bottom: 1.2rem;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #ccc;
-}
+    @media (min-width: 768px) {
+      .about-container {
+        flex-direction: row;
+        text-align: left;
+      }
+    }
 
-.about-quote {
-  margin-top: 2rem;
-  font-style: italic;
-  color: #00ffff;
-  font-size: 1.1rem;
-  text-align: center;
-}
-    /* Reveal Section Setup */
-.reveal-section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
+    /* Reveal Animations */
+    .reveal-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
 
-.reveal-item {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
 
-.reveal-item.delay-1 { transition-delay: 0.3s; }
-.reveal-section.revealed,
-.reveal-item.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
+    .reveal-item.delay-1 { transition-delay: 0.3s; }
 
-/* Existing styles */
-.about-section {
-  padding: 4rem 1.5rem;
-  background: #111;
-  color: var(--text);
-}
-
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: auto;
-  align-items: center;
-  gap: 2rem;
-}
-
-.about-image img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--accent);
-  transition: transform 0.5s ease;
-}
-
-.about-text {
-  flex: 2;
-  min-width: 280px;
-}
-
-.about-text h2 {
-  font-size: 2.25rem;
-  margin-bottom: 1.2rem;
-  color: var(--accent);
-}
-
-.about-text p {
-  font-size: 1.1rem;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.about-quote {
-  margin-top: 1.5rem;
-  color: var(--accent);
-  font-style: italic;
-}
-
-@media (min-width: 768px) {
-  .about-container {
-    flex-direction: row;
-    text-align: left;
-  }
-  .about-image img {
-    width: 250px;
-    height: 250px;
-  }
-}
+    .revealed {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
   </style>
 </head>
-
 <body>
-<header class="navbar">
-  <div class="nav-container">
-    <div class="logo">DigitalHus</div>
-    <div class="hamburger" id="hamburger">&#9776;</div>
-    <nav class="nav-links" id="nav-links">
-      <a href="#hero">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-  <section class="hero">
+
+  <!-- ✅ Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">DigitalHus</div>
+      <div class="hamburger" id="hamburger">&#9776;</div>
+      <nav class="nav-links" id="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Hero -->
+  <section id="hero" class="hero">
     <div class="container">
       <h1><span class="wave">👋</span> Hi, I’m Hussein Salim <span class="smile">😊</span></h1>
-
       <div class="typing-container">
         <span class="static-text">I am a Full Stack JavaScript Developer and </span>
         <span class="dynamic-text" id="typed-text"></span><span class="cursor"></span>
       </div>
-
-      <!-- 👇 Slowly Fading Paragraph -->
       <div class="disappearing-text">
-        <p>
-          With over 7 years of delivering luxury service in elite hospitality, I now channel that same precision,
-          creativity, and human touch into digital experiences. Whether it’s building seamless websites, crafting bold
-          brand identities, or driving high-converting Meta ad campaigns — I bring elegance, strategy, and soul to
-          every pixel.
-        </p>
+        <p>With over 7 years of delivering luxury service in elite hospitality, I now channel that same precision, creativity, and human touch into digital experiences. Whether it’s building seamless websites, crafting bold brand identities, or driving high-converting Meta ad campaigns — I bring elegance, strategy, and soul to every pixel.</p>
       </div>
-
       <div class="buttons">
         <a href="#projects" class="btn-primary">See My Work</a>
         <a href="#contact" class="btn-secondary">Let’s Connect</a>
       </div>
     </div>
-<section id="about" class="about-section reveal-section">
-  <div class="about-container">
-    <div class="about-image reveal-item">
-      <img src="YOUR_IMAGE_URL" alt="Hussein Salim portrait" />
-    </div>
-    <div class="about-text reveal-item delay-1">
-      <h2>About Me</h2>
-      <p>
-        With over 7 years delivering luxury service in elite hospitality, I transitioned into the digital world to blend precision, creativity, and empathy.
-      </p>
-      <p>
-        Now, as a Full Stack JavaScript Developer, Logo Designer, Digital Marketer, and Meta Ads Specialist, I build experiences that are performance‑focused and deeply human.
-      </p>
-      <div class="about-quote">
-        “Your purpose is encoded in your path — I turned mine into pixels.”
+  </section>
+
+  <!-- ✅ About -->
+  <section id="about" class="about-section reveal-section">
+    <div class="about-container">
+      <div class="about-image reveal-item">
+        <img src="images/hussein.webp" alt="Hussein Salim" />
+      </div>
+      <div class="about-text reveal-item delay-1">
+        <h2>About Me</h2>
+        <p>With over 7 years delivering luxury service in elite hospitality, I transitioned into the digital world to blend precision, creativity, and empathy.</p>
+        <p>Now, as a Full Stack JavaScript Developer, Logo Designer, Digital Marketer, and Meta Ads Specialist, I build experiences that are performance‑focused and deeply human.</p>
+        <div class="about-quote">“Your purpose is encoded in your path — I turned mine into pixels.”</div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ✅ Scripts -->
   <script>
     const roles = [
       "Logo Designer",
       "Digital Marketer",
       "Meta Social Media Marketing Specialist"
     ];
-
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -473,27 +405,27 @@
       setTimeout(type, isDeleting ? 40 : 100);
     }
 
-    document.addEventListener("DOMContentLoaded", type);
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+    document.addEventListener("DOMContentLoaded", () => {
+      type();
 
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-  document.addEventListener("DOMContentLoaded", () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-        }
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('nav-links');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
       });
-    }, { threshold: 0.3 });
 
-    document.querySelectorAll(".reveal-section, .reveal-item").forEach(el => {
-      observer.observe(el);
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      }, { threshold: 0.3 });
+
+      document.querySelectorAll(".reveal-section, .reveal-item").forEach(el => {
+        observer.observe(el);
+      });
     });
-</script>
-
+  </script>
 </body>
-  
 </html>
