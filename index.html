@@ -3,12 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hussein Salim – Digital Portfolio" />
+  <meta name="description" content="Hussein Salim – Full Stack Developer Portfolio" />
   <title>DigitalHus – Portfolio</title>
-
-  <!-- Import Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <style>
     :root {
       --bg: #0e0e0e;
@@ -17,28 +14,12 @@
       --muted: #cccccc;
     }
 
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
-      scroll-behavior: smooth;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
     }
 
     /* Hero Section */
@@ -47,21 +28,107 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       padding: 2rem;
+      text-align: center;
       background: linear-gradient(to bottom, #000000, #1a1a1a);
+      overflow: hidden;
     }
 
-    .hero h1 {
-      font-size: 2rem;
+    .container {
+      max-width: 800px;
+    }
+
+    h1 {
+      font-size: 2.2rem;
       font-weight: 700;
-      line-height: 1.4;
+      margin-bottom: 1rem;
     }
 
-    .hero p {
-      margin-top: 1rem;
+    /* 👋 Waving hand */
+    .wave {
+      display: inline-block;
+      animation: waveHand 2s infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes waveHand {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60% { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* 😊 Smiling face animation */
+    .smile {
+      display: inline-block;
+      animation: pulseSmiley 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseSmiley {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.9; }
+    }
+
+    .typing-text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 1px;
+      background-color: var(--accent);
+      animation: blink 1s infinite;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .disappearing-paragraph {
+      margin-top: 1.5rem;
+      animation: fadeShimmerOut 8s ease forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .disappearing-paragraph p {
       font-size: 1.1rem;
       color: var(--muted);
+      line-height: 1.6;
+    }
+
+    @keyframes fadeShimmerOut {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      10% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      60% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 0.5;
+        filter: brightness(1.6);
+        mask-image: linear-gradient(90deg, transparent 30%, white 50%, transparent 70%);
+        -webkit-mask-image: linear-gradient(90deg, transparent 30%, white 50%, transparent 70%);
+      }
+      100% {
+        opacity: 0;
+        filter: blur(6px);
+        transform: scale(1.02);
+        pointer-events: none;
+      }
     }
 
     .buttons {
@@ -77,6 +144,7 @@
       padding: 0.8rem 1.5rem;
       border-radius: 5px;
       font-weight: 500;
+      text-decoration: none;
       transition: all 0.3s ease;
     }
 
@@ -99,84 +167,7 @@
       color: black;
     }
 
-    /* About Section */
-    .about {
-      background-color: #111;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .about h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .about p {
-      max-width: 700px;
-      margin: 1rem auto;
-      font-size: 1.1rem;
-      color: var(--muted);
-    }
-
-    /* Projects Section */
-    .projects {
-      background-color: #0a0a0a;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .projects h2 {
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .project-grid {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: 1fr;
-    }
-
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: scale(1.02);
-    }
-
-    .project-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      opacity: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: opacity 0.3s ease;
-    }
-
-    .project-card:hover .overlay {
-      opacity: 1;
-    }
-
-    .overlay h3 {
-      color: white;
-      font-size: 1.5rem;
-      margin: 0;
-    }
-
-    /* Animations */
+    /* Reveal animations */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -202,77 +193,90 @@
       }
     }
 
-    /* Responsive Typography */
+    /* Responsive */
     @media (min-width: 768px) {
-      .hero h1 {
+      h1 {
         font-size: 3rem;
       }
-
-      .hero p,
-      .about p {
-        font-size: 1.25rem;
+      .typing-text {
+        font-size: 2rem;
       }
-
-      .project-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .disappearing-paragraph p {
+        font-size: 1.25rem;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Hero Section -->
+  <!-- HERO SECTION -->
   <section class="hero">
     <div class="container">
-      <h1 class="reveal">
-        As a seasoned professional with seven years of experience delivering world-class service
+      <!-- Greeting -->
+      <h1 class="reveal delay">
+        <span class="wave">👋</span> Hi, I’m Hussein Salim <span class="smile">😊</span>
       </h1>
-      <p class="reveal delay">
-        I bring that same dedication to digital experiences – crafting seamless, elegant, and human-centered solutions.
-      </p>
-      <div class="buttons reveal delay-2">
+
+      <!-- Typing Roles -->
+      <h2 class="typing-text reveal delay-2">
+        I am a <span id="typed-text"></span><span class="cursor">|</span>
+      </h2>
+
+      <!-- Disappearing Paragraph -->
+      <div class="disappearing-paragraph reveal delay-3">
+        <p>
+          With over 7 years of delivering luxury service in elite hospitality, I now channel that same precision, creativity, and human touch into digital experiences.
+        </p>
+        <p>
+          Whether it’s building seamless websites, crafting bold brand identities, or driving high-converting Meta ad campaigns — I bring elegance, strategy, and soul to every pixel.
+        </p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons reveal delay-3">
         <a href="#projects" class="btn-primary">See My Work</a>
         <a href="#contact" class="btn-secondary">Let’s Connect</a>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="container">
-      <h2 class="reveal">About Me</h2>
-      <p class="reveal delay">
-        With over 7 years of experience delivering world-class service in luxury hospitality and aviation, I learned the power of precision, presence, and empathy.
-      </p>
-      <p class="reveal delay-2">
-        Today, I bring that same passion into the digital space — designing thoughtful user experiences, building clean interfaces, and developing websites that feel personal and perform seamlessly.
-      </p>
-      <p class="reveal delay-3">
-        Every brand I build is crafted with clarity, intention, and a touch of human warmth — because to me, real design is always about people.
-      </p>
-    </div>
-  </section>
+  <!-- Typing Effect Script -->
+  <script>
+    const words = [
+      "Full Stack Developer",
+      "Logo Designer",
+      "Digital Marketer",
+      "Meta Ads Specialist"
+    ];
+    let i = 0;
+    let j = 0;
+    let isDeleting = false;
+    const speed = 100;
+    const target = document.getElementById("typed-text");
 
-  <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <div class="container">
-      <h2 class="reveal">My Work</h2>
-      <div class="project-grid">
-        <a href="https://husseinbakes.github.io/husseinbakes_website/" class="project-card reveal delay" target="_blank">
-          <img src="https://raw.githubusercontent.com/husseinbakes/husseinbakes_website/main/assets/logo.png" alt="Hussein Bakes Logo" />
-          <div class="overlay">
-            <h3>Hussein Bakes</h3>
-          </div>
-        </a>
-        <a href="https://fatmaglam.com" class="project-card reveal delay-2" target="_blank">
-          <img src="https://fatmaglam.com/favicon.png" alt="Glam by Fatma Logo" />
-          <div class="overlay">
-            <h3>Glam by Fatma</h3>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
+    function typeEffect() {
+      const currentWord = words[i];
+      if (!isDeleting && j <= currentWord.length) {
+        target.textContent = currentWord.substring(0, j++);
+      } else if (isDeleting && j >= 0) {
+        target.textContent = currentWord.substring(0, j--);
+      }
+
+      if (j === currentWord.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1000);
+      } else if (j === 0 && isDeleting) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        setTimeout(typeEffect, 300);
+      } else {
+        setTimeout(typeEffect, isDeleting ? 50 : speed);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
 
 </body>
 </html>
