@@ -250,126 +250,69 @@
 
     /* === ABOUT SECTION === */
     .about-section {
-      padding: 4rem 1.5rem;
-      background: #111;
-      color: var(--text);
-    }
-
-    .about-container {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1100px;
-      margin: auto;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .about-image img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      transition: transform 0.5s ease;
-    }
-
-    .about-text {
-      flex: 2;
-      min-width: 280px;
-    }
-
-    .about-text h2 {
-      font-size: 2.25rem;
-      margin-bottom: 1.2rem;
-      color: var(--accent);
-    }
-
-    .about-text p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .about-quote {
-      margin-top: 1.5rem;
-      color: var(--accent);
-      font-style: italic;
-    }
-
-    @media (min-width: 768px) {
-      .about-container {
-        flex-direction: row;
-        text-align: left;
-      }
-    }
-
-    /* Reveal Animations */
-    .reveal-section {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal-item {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal-item.delay-1 { transition-delay: 0.3s; }
-
-    .revealed {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }.tech-stack {
-  padding: 4rem 1rem;
+  padding: 80px 20px;
   text-align: center;
   background: #0a0a0a;
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
   color: #fff;
+  animation: fadeInUp 1.2s ease-in-out;
 }
 
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
+.about-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-.tool-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+.about-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff;
+  gap: 25px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.tool-card:hover {
+.about-image-glass {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-image-glass:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
 }
 
-.tool-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 0.8rem;
+.about-image-glass img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.tool-card p {
-  font-size: 0.9rem;
-  margin: 0;
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 700px;
+  color: #ddd;
+  padding: 0 10px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
   </style>
 </head>
@@ -408,19 +351,20 @@
   </section>
 
   <!-- ✅ About -->
-  <section id="about" class="about-section reveal-section">
-    <div class="about-container">
-      <div class="about-image reveal-item">
-        <img src="images/hussein.webp" alt="Hussein Salim" />
-      </div>
-      <div class="about-text reveal-item delay-1">
-        <h2>About Me</h2>
-        <p>With over 7 years delivering luxury service in elite hospitality, I transitioned into the digital world to blend precision, creativity, and empathy.</p>
-        <p>Now, as a Full Stack JavaScript Developer, Logo Designer, Digital Marketer, and Meta Ads Specialist, I build experiences that are performance‑focused and deeply human.</p>
-        <div class="about-quote">“Your purpose is encoded in your path — I turned mine into pixels.”</div>
-      </div>
+  <section id="about" class="about-section">
+  <h2>About Me</h2>
+  <div class="about-container">
+    <div class="about-image-glass">
+      <img src="your-photo.jpg" alt="Hussein Salim" />
     </div>
-  </section>
+    <p class="about-text">
+      With over 7 years of delivering luxury service in elite hospitality, I now channel that same
+      precision, creativity, and human touch into digital experiences. Whether it’s building seamless
+      websites, crafting bold brand identities, or driving high-converting Meta ad campaigns — I bring
+      elegance, strategy, and soul to every pixel.
+    </p>
+  </div>
+</section>
  <section class="tech-stack">
   <h2 class="section-title">🛠️ Tools & Technologies I Use</h2>
   <div class="tool-grid">
