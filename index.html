@@ -314,6 +314,55 @@
     transform: translateY(0);
   }
 }
+    .tech-stack {
+  padding: 4rem 1rem;
+  text-align: center;
+  background: #0a0a0a;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tool-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+}
+
+.tool-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+}
+
+.tool-card img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.8rem;
+}
+
+.tool-card p {
+  font-size: 0.9rem;
+  margin: 0;
+}
   </style>
 </head>
 <body>
