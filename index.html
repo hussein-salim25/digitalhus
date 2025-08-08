@@ -3,521 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hussein Salim – Digital Portfolio" />
-  <title>DigitalHus – Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0e0e0e;
-      --text: #ffffff;
-      --accent: #ffffff;
-      --muted: #cccccc;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-    }
-
-    /* === NAVIGATION === */
-    .navbar {
-      background-color: #0b0b0b;
-      padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--accent);
-    }
-
-    .hamburger {
-      font-size: 2rem;
-      color: var(--accent);
-      cursor: pointer;
-      display: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 2rem;
-        background-color: #111;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 0.5rem 0;
-      }
-    }
-
-    /* === HERO SECTION === */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      text-align: center;
-      background: linear-gradient(to bottom, #000000, #1a1a1a);
-    }
-
-    .container {
-      max-width: 800px;
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .wave {
-      display: inline-block;
-      animation: waveHand 2s infinite;
-      transform-origin: 70% 70%;
-    }
-
-    @keyframes waveHand {
-      0%, 100% { transform: rotate(0deg); }
-      10% { transform: rotate(14deg); }
-      20% { transform: rotate(-8deg); }
-      30% { transform: rotate(14deg); }
-      40% { transform: rotate(-4deg); }
-      50% { transform: rotate(10deg); }
-      60% { transform: rotate(0deg); }
-    }
-
-    .smile {
-      display: inline-block;
-      animation: pulseSmiley 3s ease-in-out infinite;
-    }
-
-    @keyframes pulseSmiley {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.15); opacity: 0.9; }
-    }
-
-    .typing-container {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-top: 1rem;
-    }
-
-    .static-text {
-      display: inline;
-    }
-
-    .dynamic-text {
-      display: inline;
-      color: var(--accent);
-    }
-
-    .cursor {
-      display: inline-block;
-      width: 2px;
-      height: 1.2em;
-      background-color: var(--accent);
-      margin-left: 4px;
-      animation: blink 1s infinite;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    .disappearing-text {
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-top: 2rem;
-      opacity: 0;
-      animation: fadeAndDisappear 10s ease-out forwards;
-    }
-
-    @keyframes fadeAndDisappear {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      10% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      60% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0;
-        transform: translateY(-10px);
-        pointer-events: none;
-        display: none;
-      }
-    }
-
-    .buttons {
-      margin-top: 2.5rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      padding: 0.8rem 1.5rem;
-      border-radius: 5px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background-color: var(--accent);
-      color: black;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--accent);
-      color: black;
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 3rem;
-      }
-      .typing-container {
-        font-size: 2rem;
-      }
-      .disappearing-text {
-        font-size: 1.25rem;
-      }
-    }
-
-    /* === ABOUT SECTION === */
-    .about-section {
-  padding: 80px 20px;
-  text-align: center;
-  background: #0a0a0a;
-  color: #fff;
-  animation: fadeInUp 1.2s ease-in-out;
-}
-
-.about-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  font-weight: 600;
-}
-
-.about-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.about-image-glass {
-  width: 200px;
-  height: 200px;
-  border-radius: 16px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s ease-in-out;
-}
-
-.about-image-glass:hover {
-  transform: scale(1.05);
-}
-
-.about-image-glass img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.about-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  max-width: 700px;
-  color: #ddd;
-  padding: 0 10px;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-    .tech-stack {
-  padding: 4rem 1rem;
-  text-align: center;
-  background: #0a0a0a;
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #fff;
-}
-
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.tool-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-}
-
-.tool-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
-}
-
-.tool-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 0.8rem;
-}
-
-.tool-card p {
-  font-size: 0.9rem;
-  margin: 0;
-}
-  </style>
+  <title>Hussein — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
 </head>
 <body>
 
-  <!-- ✅ Navbar -->
-  <header class="navbar">
-    <div class="nav-container">
-      <div class="logo">DigitalHus</div>
-      <div class="hamburger" id="hamburger">&#9776;</div>
-      <nav class="nav-links" id="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ✅ Hero -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <h1><span class="wave">👋</span> Hi, I’m Hussein Salim <span class="smile">😊</span></h1>
-      <div class="typing-container">
-        <span class="static-text">I am a Full Stack JavaScript Developer and </span>
-        <span class="dynamic-text" id="typed-text"></span><span class="cursor"></span>
-      </div>
-      <div class="disappearing-text">
-        <p>With over 7 years of delivering luxury service in elite hospitality, I now channel that same precision, creativity, and human touch into digital experiences. Whether it’s building seamless websites, crafting bold brand identities, or driving high-converting Meta ad campaigns — I bring elegance, strategy, and soul to every pixel.</p>
-      </div>
-      <div class="buttons">
-        <a href="#projects" class="btn-primary">See My Work</a>
-        <a href="#contact" class="btn-secondary">Let’s Connect</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ About -->
-  <section id="about" class="about-section">
-  <h2>About Me</h2>
-  <div class="about-container">
-    <div class="about-image-glass">
-      <img src="images/hussein.webp" alt="Hussein Salim" />
-    </div>
-    <p class="about-text">
-      With over 7 years of delivering luxury service in elite hospitality, I now channel that same
-      precision, creativity, and human touch into digital experiences. Whether it’s building seamless
-      websites, crafting bold brand identities, or driving high-converting Meta ad campaigns — I bring
-      elegance, strategy, and soul to every pixel.
+<!-- ================= HERO ================= -->
+<section id="hero" class="hero-section">
+  <div class="hero-bg-layer"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="line">Hi, I’m <span class="highlight">Hussein</span></span>
+      <span class="line">Digital Designer & Developer</span>
+    </h1>
+    <p class="hero-subtitle">
+      <span class="line">I create modern, high-performance websites</span>
+      <span class="line">that connect brands with people.</span>
     </p>
+    <a href="#projects" class="cta-button">View My Work</a>
   </div>
 </section>
- <section class="tech-stack">
-  <h2 class="section-title">🛠️ Tools & Technologies I Use</h2>
-  <div class="tool-grid">
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-      <p>JavaScript</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
-      <p>TypeScript</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
-      <p>Java</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" />
-      <p>Spring Boot</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-      <p>Node.js</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-      <p>React</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
-      <p>Next.js</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-      <p>Docker</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
-      <p>Azure</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
-      <p>Firebase</p>
-    </div>
-    <div class="tool-card">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Actions" />
-      <p>GitHub Actions</p>
-    </div>
-    <a href="about.html">Get to know Hussein alittle more→</a>
+
+<!-- ================= TECH STACK ================= -->
+<section id="tech-stack" class="tech-stack-section">
+  <h2 class="section-title">🛠 Tech Stack</h2>
+  <div class="tech-grid">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
   </div>
-   
 </section>
 
-  <!-- ✅ Scripts -->
-  <script>
-    const roles = [
-      "Logo Designer",
-      "Digital Marketer",
-      "Meta Social Media Marketing Specialist"
-    ];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typedText = document.getElementById("typed-text");
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="projects-section">
+  <h2 class="section-title">🚀 Featured Projects</h2>
+  <div class="projects-grid">
 
-    function type() {
-      const current = roles[roleIndex];
-      if (!isDeleting) {
-        typedText.textContent = current.substring(0, charIndex++);
-        if (charIndex > current.length) {
-          isDeleting = true;
-          setTimeout(type, 1600);
-          return;
-        }
-      } else {
-        typedText.textContent = current.substring(0, charIndex--);
-        if (charIndex === 0) {
-          isDeleting = false;
-          roleIndex = (roleIndex + 1) % roles.length;
-        }
-      }
-      setTimeout(type, isDeleting ? 40 : 100);
-    }
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/hussein-bakes.webp" alt="Hussein Bakes Website" />
+      </div>
+      <div class="project-content">
+        <h3>Hussein Bakes</h3>
+        <p>Built a sleek bakery website with integrated Google Business listing, boosting orders by 40% in 3 months.</p>
+        <div class="project-tech">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" alt="Firebase" />
+        </div>
+        <a href="https://husseinbakes.github.io/husseinbakes_website/" target="_blank" class="btn-primary">View Live</a>
+      </div>
+    </div>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      type();
+    <div class="project-card">
+      <div class="project-image">
+        <img src="images/glam-by-fatma.webp" alt="Glam by Fatma Website" />
+      </div>
+      <div class="project-content">
+        <h3>Glam by Fatma</h3>
+        <p>Full digital brand presence: website, Google listing, and social media strategy, driving 3x monthly bookings.</p>
+        <div class="project-tech">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" />
+        </div>
+        <a href="https://fatmaglam.com" target="_blank" class="btn-primary">View Live</a>
+      </div>
+    </div>
 
-      const hamburger = document.getElementById('hamburger');
-      const navLinks = document.getElementById('nav-links');
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-      });
+  </div>
+</section>
 
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("revealed");
-          }
-        });
-      }, { threshold: 0.3 });
-
-      document.querySelectorAll(".reveal-section, .reveal-item").forEach(el => {
-        observer.observe(el);
-      });
-    });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
